@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+}
+
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    
+    margin-top: 50px;
+    width: 500px;
+  height: 500px;
+}
+
+#container > div{
+    border: 1px solid black;
+  
+}
+
+.newDiv.active,
+.boxDiv.active{
+    background-color:rgb(107, 228, 208);
+}
+
+#myButton{
+background-color: rgb(83, 149, 248);
+font-weight:400;
+width: 100px;
+height: 40px;
+border: none;
+border-radius: 50px;
+max-width: 50%;
+margin-left: 50px;
+}
