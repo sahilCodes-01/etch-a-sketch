@@ -1,8 +1,19 @@
+//  random color while hover over the div
+function getRandomColor() {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+    return `rgb(${red},${green},${blue})`;
+};
+
 const container = document.querySelector("#container");
+
 
 // creat grid using flex in container
 for (let i = 0; i < 256; i++) {
     const div = document.createElement("div");
+
+
     div.classList.add("newDiv")
     container.appendChild(div);
 };
@@ -30,15 +41,13 @@ function clearContainer() {
 };
 
 // It clears the old grid and creates a new square grid of interactive cells based on the given size.
-
 function creatGrid(size) {
-    clearContainer();
 
+    clearContainer();
 
     const boxSzing = 100 / size;
 
     // creat a correct number of cell
-
     for (let i = 0; i < size * size; i++) {
 
         const box = document.createElement("div")
@@ -49,10 +58,22 @@ function creatGrid(size) {
         box.style.height = `${boxSzing}%`;
 
 
+        let opacity = 1;
+        // Implement random RGB color on hover and 10% opacity darkening per interaction
 
-        box.addEventListener("mouseenter", () => {
+        box.addEventListener("mouseover", () => {
             box.classList.add("active");
+
+            box.style.backgroundColor = getRandomColor();
+
+            if (opacity > 0) {
+                opacity -= 0.1;
+                box.style.opacity = opacity;
+            }
         });
+
+
+
 
         container.appendChild(box);
 
@@ -76,4 +97,3 @@ button.addEventListener("click", () => {
         alert("Invalid input");
     }
 });
-
